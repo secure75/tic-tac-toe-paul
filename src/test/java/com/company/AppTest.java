@@ -29,7 +29,7 @@ public class AppTest
     }
 
     public void testBoard() {
-        Board board = null; // = new MyBoard();
+        Board board = new Board();
 
         assertNotNull(board);
 
