@@ -37,14 +37,21 @@ public class App {
                 } else {
                     xo = 'x';
                 }
+
+
+
                 board.setValueAt(input, xo);
+                gameio.printBoard(board);
+
+                if (game.hasWon(xo)) {
+                    System.out.println("Player " + xo + " has won");
+                }
                 player = !player;
                 if ( game.isTie() ) {
                     gameio.printText("Unentschieden");
                     gameover = true;
 
                 }
-                gameio.printBoard(board);
             }
         }
 
