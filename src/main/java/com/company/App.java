@@ -10,12 +10,10 @@ public class App {
 
         GameIO gameio = new MicGameIO();
 
-        MicGameIO {
-            baord =
-        }
+
 
         Board board = new MicBoard();
-        Game game = new MicGame();
+        Game game = new MicGame(board);
 
         boolean player = false; // false = o, true = x
         boolean gameover = false;
@@ -27,7 +25,6 @@ public class App {
 
         while (!gameover) {
             int input = gameio.getInput();
-            int turn = 0;
 
             System.out.println(input);
             if (input == -1 || board.getValueAt(input) != '-' ) {
@@ -40,12 +37,12 @@ public class App {
                 } else {
                     xo = 'x';
                 }
-                turn++;
                 board.setValueAt(input, xo);
                 player = !player;
-                if ( game.isTie(turn) ) {
+                if ( game.isTie() ) {
                     gameio.printText("Unentschieden");
                     gameover = true;
+
                 }
                 gameio.printBoard(board);
             }

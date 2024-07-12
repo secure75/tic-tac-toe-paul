@@ -2,12 +2,19 @@ package com.company;
 
 public class MicGame implements Game {
 
-    void start(){
+    private Board board;
+
+    public MicGame(Board board) { //{
+    this.board = board;
+    }
+
+    public void start(){
         System.out.println("asda");
     }
 
-    boolean hasWon(char player) {
+    public boolean hasWon(char player) {
         System.out.println("asdas");
+        return true;
     }
 
 
@@ -19,9 +26,21 @@ public class MicGame implements Game {
     //if ( field[i] == player && field[j] == player && field[k] == player)
 
 
-    boolean isTie() {
+   public boolean isTie() {
+        boolean onefieldfree = false;
+       for (int i = 0; i < 9; i++) {
 
-        }
+           if (this.board.getValueAt(i) == '-') {
+               onefieldfree = false;
+           }
+       }
+
+       if (onefieldfree) {
+           return true;
+       } else {
+           return false;
+       }
+    }
 
 }
-}
+
