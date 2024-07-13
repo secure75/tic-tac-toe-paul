@@ -40,8 +40,6 @@ public class App {
                     xo = 'x';
                 }
 
-
-
                 board.setValueAt(input, xo);
                 gameio.printBoard(board);
 

@@ -66,11 +66,12 @@ public class MicGame implements Game {
 
 
         public boolean isTie () {
-            boolean onefieldfree = false;
-            for (int i = 0; i < 9; i++) {
+            boolean onefieldfree = true;
+            for (int i = 1; i < 10; i++) {
 
                 if (this.board.getValueAt(i) == '-') {
                     onefieldfree = false;
+                    //System.out.println("min one field free");
                 }
             }
 
