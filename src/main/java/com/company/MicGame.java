@@ -13,18 +13,41 @@ public class MicGame implements Game {
     }
 
     public boolean hasWon(char player) {
-        if ( micTestRow(1,2,3)) {
+        boolean threeinrow = false;
+
+        // check horizontal
+        for (int i=0; i < 9; i = i + 3) {
+            if (micTestRow(1+i, 2+i, 3+i)) {
+                //System.out.println( player + " has one");
+                threeinrow = true;
+            }
+        }
+        // check vertical
+        for (int i=0; i < 3; i++) {
+            if (micTestRow(1+i, 4+i, 7+i)) {
+                //System.out.println( player + " has one");
+                threeinrow = true;
+            }
+        }
+        // check diagonal
+        if (micTestRow(1, 5, 9) || micTestRow(3, 5, 7)) {
             //System.out.println( player + " has one");
+            threeinrow = true;
+        }
+
+        if (threeinrow) {
             return true;
         } else {
             return false;
         }
+
     }
 
     public boolean micTestRow(int one, int two, int three) {
         //System.out.println("null" + this.board.getValueAt(1));
         //System.out.println( this.board.getValueAt(one) + "what" +  this.board.getValueAt(two));
-        if ( this.board.getValueAt(one) != '-' && this.board.getValueAt(two) != '-' && this.board.getValueAt(three) != '-' && this.board.getValueAt(one) == this.board.getValueAt(two) && this.board.getValueAt(two) == this.board.getValueAt(three)) {
+        if ( this.board.getValueAt(one) != '-' && this.board.getValueAt(two) != '-' && this.board.getValueAt(three) != '-' &&
+                this.board.getValueAt(one) == this.board.getValueAt(two) && this.board.getValueAt(two) == this.board.getValueAt(three)) {
             //System.out.println("winner");
 
             return true;

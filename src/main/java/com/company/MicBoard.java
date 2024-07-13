@@ -25,7 +25,7 @@ public class MicBoard implements Board {
         if (index > 0 && index <= totalFieldNumber) {
             if(value == 'x' || value == 'o' || value == '-') {
                 field[index - 1] = value;
-                System.out.println(value + " " + field[index - 1]);
+                //System.out.println(value + " " + field[index - 1]);
             } else {
                 System.out.println("invalid value");
             }

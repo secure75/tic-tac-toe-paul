@@ -18,7 +18,9 @@ public class App {
         boolean player = false; // false = o, true = x
         boolean gameover = false;
         char xo;
+        gameio.printBoard(board);
         gameio.printText("Player 1 starts, Please enter 1-9");
+
 
         //System.out.println(gameio.getInput());
         //int input = gameio.getInput();
@@ -26,7 +28,7 @@ public class App {
         while (!gameover) {
             int input = gameio.getInput();
 
-            System.out.println(input);
+            //System.out.println(input);
             if (input == -1 || board.getValueAt(input) != '-' ) {
                 gameio.printBoard(board);
                 gameio.printText("Input not valid or field is in use, Please enter 1-9");
@@ -45,6 +47,7 @@ public class App {
 
                 if (game.hasWon(xo)) {
                     System.out.println("Player " + xo + " has won");
+                    gameover = true;
                 }
                 player = !player;
                 if ( game.isTie() ) {
